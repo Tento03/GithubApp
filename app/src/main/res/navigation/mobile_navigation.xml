@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.tes.ui.FragmentHome"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_details"
+            app:destination="@id/navigation_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_details"
+        android:name="com.example.tes.ui.FragmentDetails"
+        android:label="Details"
+        tools:layout="@layout/fragment_details" >
+        <action
+            android:id="@+id/action_navigation_details_to_navigation_followings"
+            app:destination="@id/navigation_followings" />
+        <action
+            android:id="@+id/action_navigation_details_to_navigation_followers"
+            app:destination="@id/navigation_followers" />
+        <argument
+            android:name="user"
+            app:argType="com.example.tes.api.User" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_followers"
+        android:name="com.example.tes.ui.FragmentFollowers"
+        android:label="Followers"
+        tools:layout="@layout/fragment_followers" >
+        <argument
+            android:name="user"
+            app:argType="com.example.tes.api.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_followings"
+        android:name="com.example.tes.ui.FragmentFollowings"
+        android:label="Followings"
+        tools:layout="@layout/fragment_followings" >
+
+        <argument
+            android:name="user"
+            app:argType="com.example.tes.api.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_favorite"
+        android:name="com.example.tes.ui.FragmentFavorite"
+        android:label="FragmentFavorite"
+        tools:layout="@layout/fragment_favorite"
+        >
+        <action
+            android:id="@+id/action_navigation_favorite_to_navigation_details"
+            app:destination="@id/navigation_details" />
+        <argument
+            android:name="user"
+            app:argType="com.example.tes.api.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.example.tes.ui.FragmentSettings"
+        tools:layout="@layout/fragment_settings"
+        android:label="FragmentSettings" />
+</navigation>
